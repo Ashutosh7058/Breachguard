@@ -1,0 +1,198 @@
+body {
+    background-color: #0f172a;
+    color: #e2e8f0 !important;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* GLOBAL TEXT FIX */
+p, span, label, small, div {
+    color: #e2e8f0;
+}
+
+.text-muted {
+    color: #94a3b8 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+/* LINKS */
+a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0ea5e9;
+}
+
+/* SIDEBAR */
+.sidebar {
+    min-height: 100vh;
+    background: #020617;
+    padding: 25px;
+    border-right: 1px solid #1e293b;
+}
+
+.sidebar h3 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    color: #94a3b8;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #1e293b;
+    color: #38bdf8;
+}
+
+/* MAIN */
+.main {
+    padding: 40px;
+    padding-top: 0;
+}
+
+/* CARDS */
+.card-custom {
+    background: #0b1220;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+    color: #e2e8f0;
+    transition: 0.3s;
+}
+
+.card-custom:hover {
+    border-color: #38bdf8;
+    transform: translateY(-3px);
+}
+
+.card-custom.border-danger {
+    border: 1px solid #dc3545;
+    background: rgba(220, 53, 69, 0.08);
+}
+
+/* CHART */
+.chart-box {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 380px;
+}
+
+.chart-title {
+    color: #38bdf8;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 10px;
+}
+
+canvas {
+    width: 100% !important;
+    height: 260px !important;
+    max-height: 250px;
+}
+
+/* BREACH CARD */
+.breach-card {
+    background: #0b1220;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 16px;
+    transition: 0.3s;
+    height: 100%;
+    color: #e2e8f0;
+}
+
+.breach-card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-4px);
+}
+
+.breach-card small {
+    color: #94a3b8 !important;
+}
+
+.breach-card h6 {
+    color: #38bdf8;
+}
+
+.breach-card div {
+    color: #f1f5f9;
+}
+
+/* BUTTONS */
+.btn {
+    color: #ffffff;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background: #38bdf8;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #0ea5e9;
+}
+
+/* INPUTS */
+input.form-control,
+select,
+option {
+    background: #0b1220;
+    border: 1px solid #334155;
+    color: #f1f5f9;
+}
+
+input.form-control::placeholder {
+    color: #94a3b8;
+}
+
+input.form-control:focus {
+    background: #0b1220;
+    border-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(56,189,248,0.2);
+}
+
+/* BADGES */
+.badge {
+    font-size: 0.75rem;
+}
+
+/* HEADER */
+.top-header {
+    height: 60px;
+    background: #0f172a;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* NOTIFICATION ICON */
+.bell-icon {
+    color: #ffffff;
+    font-size: 20px;
+    position: relative;
+}
+
+.bell-icon:hover {
+    color: #38bdf8;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.bell-icon .badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    font-size: 10px;
+}

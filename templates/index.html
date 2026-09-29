@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">🔐 BreachGuard Public Search</h1>
+
+<div class="card-custom mb-4">
+    <h4>Search Data Breach</h4>
+
+    <form method="POST" class="mt-3">
+        <div class="input-group">
+            <input type="text" name="query"
+                   class="form-control"
+                   placeholder="Enter Email or Domain"
+                   required>
+            <button class="btn btn-primary">Scan</button>
+        </div>
+    </form>
+</div>
+
+{% if detection %}
+
+    {% if detection.found %}
+
+        <div class="row g-4">
+
+            {% for r in records %}
+
+            <div class="col-lg-4 col-md-6">
+                <div class="breach-card">
+
+                    <h6 class="text-info">{{ r.breach }}</h6>
+
+                    <div><strong>Email:</strong> {{ r.email }}</div>
+                    <div><strong>Date:</strong> {{ r.breach_date }}</div>
+                    <div><strong>Data Exposed:</strong> {{ r.data_exposed }}</div>
+
+                    {% if is_logged_in %}
+
+                        {% if r.password_status == "Leaked" %}
+                            <span class="badge bg-danger mt-2">Password Leaked</span>
+                        {% else %}
+                            <span class="badge bg-success mt-2">Password Safe</span>
+                        {% endif %}
+
+                        {% if r.password_display %}
+                            <div class="mt-2">
+                                <strong>Hint:</strong> {{ r.password_display }}
+                            </div>
+                        {% endif %}
+
+                    {% else %}
+
+                        <div class="mt-3 text-warning">
+                            🔒 Login to view full details
+                        </div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% if not is_logged_in %}
+        <div class="card-custom mt-4 text-center">
+            <h5>Unlock Full Breach Intelligence</h5>
+            <p>Login to view complete breach details, risk analysis, and enable monitoring.</p>
+            <a href="/login" class="btn btn-primary">Login Now</a>
+        </div>
+        {% endif %}
+
+    {% else %}
+        <p>No breach records found.</p>
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}

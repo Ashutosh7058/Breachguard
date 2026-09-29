@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    
+    <h2 class="mb-0">🔔 Security Alerts</h2>
+
+<form method="POST">
+    <input type="hidden" name="mark_all" value="1">
+    <button class="btn btn-sm btn-outline-warning">
+        Mark All as Read
+    </button>
+</form>
+
+</div>
+
+{% for alert in alerts %}
+
+<div class="card-custom mb-3">
+
+<strong>{{ alert.email }}</strong>
+
+<p>{{ alert.message }}</p>
+
+<small class="text-muted">
+{{ alert.created_at }}
+</small>
+<div class="mt-2">
+    <button type="button"
+            onclick="markRead('{{ alert.id }}')"
+            class="btn btn-sm btn-outline-success">
+        Mark as Read
+    </button>
+</div>
+</div>
+<script>
+
+function markRead(id){
+
+    fetch("/notifications", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "notification_id=" + id
+    })
+    .then(() => {
+        showToast("Marked as read ✅");
+        location.reload();
+    });
+
+}
+
+</script>
+{% endfor %}
+
+{% endblock %}
